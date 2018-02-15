@@ -1,7 +1,7 @@
 
 var express = require('express');
 var mongoose = require("mongoose");
-var routes = require("./routes/index");
+var routes = require("./routes/routeHandler");
 var app = express();
 
 mongoose.connect(process.env.MONGO_URL, function(err){
@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URL, function(err){
 
 app.use(express.static('public'));
 
-app.get("/api/issue",routes);
+app.get("/api/issue",routes.post);
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
