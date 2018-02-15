@@ -1,0 +1,13 @@
+.wrapper{
+      display: flex;
+    background-color: #5d5d5d;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+}
+.insideDiv {
+    background-color: lightgray;
+    width: 250px;
+    height: 400px;
+    margin: 10px;
+}
