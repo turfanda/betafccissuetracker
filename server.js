@@ -17,8 +17,8 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post("/api/",routes.post);
-app.get("/api/getallproject/",routes.getAllPorject);
+app.post("/api/",routes.createProject);
+app.get("/api/getallproject/",routes.getAllProject);
 
 
 app.get("/", function (request, response) {

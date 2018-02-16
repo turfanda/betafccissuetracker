@@ -18,13 +18,21 @@
             <input type="text" name="projectName" placeholder="*Project Name">
             <button type="submit">Create project</button>
         </form>
-    Get All Project
             <form method="get" action="/api/getallproject/">
-            <input type="text" name="projectName" placeholder="*Project Name">
-            <button type="submit">Create project</button>
+            <button type="submit"> Get All Project</button>
         </form>
   </div>
     <div class="insideDiv">
+      Create issue with project Name
+            <form method="post" action="/api/issues/">
+            <input type="text" name="projectName" placeholder="*Project Name">
+            <input type="text" name="issueName" placeholder="*Issue Name">
+            <input type="text" name="issueText" placeholder="*Issue Text">
+            <input type="text" name="createdBy" placeholder="*Created By">
+            <input type="text" name="assignedTo" placeholder="Assigned To">
+            <input type="text" name="status" placeholder="Status">
+            <button type="submit">Create Issue</button>
+        </form>
     
   </div>
     <div class="insideDiv">
