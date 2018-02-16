@@ -25,17 +25,7 @@ exports.getAllProject = function(req, res) {
 
 exports.createIssue = function(req, res) {
     
-  console.log(req.params);
-  console.log(req.query);
-  
-  let issue = new issueModel({
-        project_name: req.body.projectName
-    });
-    issue.save(function(err, data) {
-        if (err) console.log(err);
-        else {
-            console.log(data);
-            return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
-        }
-    });
+  console.log(req.params.projectName);
+  console.log(req.body);
+
 }
