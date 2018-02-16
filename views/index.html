@@ -14,7 +14,12 @@
 <div class="wrapper">
   <div class="insideDiv">
     Create a Project
-            <form method="post" action="/api/issues/">
+            <form method="post" action="/api/">
+            <input type="text" name="projectName" placeholder="*Project Name">
+            <button type="submit">Create project</button>
+        </form>
+    Get All Project
+            <form method="get" action="/api/getallproject/">
             <input type="text" name="projectName" placeholder="*Project Name">
             <button type="submit">Create project</button>
         </form>

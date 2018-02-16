@@ -17,7 +17,9 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post("/api/issues",routes.post);
+app.post("/api/",routes.post);
+app.get("/api/getallproject/",routes.getAllPorject);
+
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
