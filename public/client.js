@@ -1,11 +1,11 @@
 $(function(){
 $("#issueSubmit").on("click",function(){
 
-  console.log($("input[name='projectName']").val());
-  var url ="/api/issues/"+$("input[name='projectName']").val()
+  console.log($("#pname").val());
+  var url= "api/issu";
 $.ajax({url:url ,
         method: "POST",
-        data
+        data:{asd:"asdaaasdsd"},
         success: function(result){
         alert(result);
     }});
