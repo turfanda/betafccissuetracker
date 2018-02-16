@@ -19,7 +19,7 @@ app.use(express.static('public'));
 
 app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
-app.post("/api/issues/:projectName",routes.createProject);
+app.post("/api/issues/:projectName",routes.createIssue);
 
 
 app.get("/", function (request, response) {

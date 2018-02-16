@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const projectModel = require('../models/project');
-const issue = require('../models/issue');
+const issueModel = require('../models/issue');
 
 exports.createProject = function(req, res) {
     let project = new projectModel({
@@ -9,7 +9,6 @@ exports.createProject = function(req, res) {
     project.save(function(err, data) {
         if (err) console.log(err);
         else {
-            console.log(data);
             return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
         }
     });
@@ -19,8 +18,24 @@ exports.getAllProject = function(req, res) {
         if (err)
           console.log(err);
         else {
-            console.log(data);
             return res.json(data)
+        }
+    });
+}
+
+exports.createIssue = function(req, res) {
+    
+  console.log(req.params);
+  console.log(req.query);
+  
+  let issue = new issueModel({
+        project_name: req.body.projectName
+    });
+    issue.save(function(err, data) {
+        if (err) console.log(err);
+        else {
+            console.log(data);
+            return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
         }
     });
 }
