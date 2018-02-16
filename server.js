@@ -26,7 +26,7 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.post("/api/",routes.)
+app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
 app.post("/api/issues/:projectName",routes.createIssue);
 

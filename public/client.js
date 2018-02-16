@@ -1,5 +1,6 @@
 $(function() {
-    $("#issueSubmit").on("click", function() {
+    $("#issueSubmit").on("click", function(e) {
+          e.preventDefault();
         var url = "api/issues/" + $("#pname").val();
         $.post(url, $('#issueCreateForm').serialize(), function(data) {
             console.log(data);
@@ -7,7 +8,8 @@ $(function() {
 
     });
 
-    $("#projectSubmit").on("click", function() {
+    $("#projectSubmit").on("click", function(e) {
+      e.preventDefault();
       $.ajax({
             type:"post",
             url:"api/",
@@ -20,7 +22,8 @@ $(function() {
 
     });
 
-    $("#getAllProjectSubmit").on("click", function() {
+    $("#getAllProjectSubmit").on("click", function(e) {
+        e.preventDefault();
         $.get("api/", $('#projectCreateForm').serialize(), function(data) {
             console.log(data);
         });
