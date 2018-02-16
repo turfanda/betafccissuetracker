@@ -9,10 +9,10 @@ $(function() {
 
     $("#projectSubmit").on("click", function() {
       $.ajax({
-            type:"POST",
+            type:"post",
             url:"api/",
-            data:$('#projectCreateForm').serialize(),//only input
-            success: function(response){
+            data:$('#projectCreateForm').serialize(),
+            done: function(response){
               console.log(1);
                 console.log(response);  
             }

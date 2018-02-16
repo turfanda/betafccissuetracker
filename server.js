@@ -26,7 +26,9 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.post("/api/",function(req,res){
+app.get("/api/",function(req,res){
+  
+  console.log(req.body);
     let project = new projectModel({
         project_name: req.body.projectName
     });
