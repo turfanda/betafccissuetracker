@@ -17,15 +17,16 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post("/api/",routes.createProject);
-app.get("/api/getallproject/",routes.getAllProject);
-app.post("/api/issues/:projectName",routes.createIssue);
+
 
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.post("/api/",routes.createProject);
+app.get("/api/getallproject/",routes.getAllProject);
+app.post("/api/issues/:projectName",routes.createIssue);
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);

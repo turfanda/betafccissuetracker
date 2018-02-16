@@ -9,7 +9,8 @@ exports.createProject = function(req, res) {
     project.save(function(err, data) {
         if (err) console.log(err);
         else {
-            return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
+          console.log(1);
+            return res.json({"asd":req.body.projectName, bsd: "has been created and id if this projetc is :","csd":data._id});
         }
     });
 }
