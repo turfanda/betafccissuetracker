@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URL, function(err){
 
 app.use(express.static('public'));
 
-app.get("/api/issue",routes.post);
+app.get("/api/issues",routes.post);
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
