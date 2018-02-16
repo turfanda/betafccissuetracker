@@ -11,3 +11,10 @@
     height: 400px;
     margin: 10px;
 }
+.resultDiv {
+    background-color: lightgray;
+    width: 500px;
+    height: 400px;
+    margin: 10px;
+  flex-basis: fill;
+}
