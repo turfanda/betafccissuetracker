@@ -24,20 +24,39 @@ exports.getAllProject = function(req, res) {
     });
 }
 
+
 exports.createIssue = function(req, res) {
     
-  console.log(req.params.projectName);
-  console.log(req.body);
+  let projectId;
+      projectModel.find({project_name:req.params.projectName},function(err, data) {
+        if (err)
+          console.log(err);
+        else {
+            projectId=data._id;
+        }
+    });
+console.log(projectId)
+  console.log(1)
   
       let issue = new issueModel({
-  issue_title: {type: String},
-	issue_text: {type: String},
-	created_by: {type: String},
-  assigned_to:{type: String},
-	created_on: {type: Date},
-  updated_on:{type:Date},
-  isOpne:{type:Boolean},
-  status:{type:String},
+  issue_title: req.body.issueName,
+	issue_text: req.body.issueText,
+	created_by: req.body.createdBy,
+  assigned_to:req.body.assignedTo,
+	created_on: Date().now,
+  updated_on:Date().now,
+  isOpen:true,
+  status:req.body.status,
+        _project:projectId
     });
-
+  
+    issue.save(function(err, data) {
+        if (err) console.log(err);
+        else {
+          console.log(1)
+          console.log(data);
+            return res.json(data);
+        }
+    });
 }
+
