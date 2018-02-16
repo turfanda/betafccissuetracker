@@ -28,5 +28,16 @@ exports.createIssue = function(req, res) {
     
   console.log(req.params.projectName);
   console.log(req.body);
+  
+      let issue = new issueModel({
+  issue_title: {type: String},
+	issue_text: {type: String},
+	created_by: {type: String},
+  assigned_to:{type: String},
+	created_on: {type: Date},
+  updated_on:{type:Date},
+  isOpne:{type:Boolean},
+  status:{type:String},
+    });
 
 }
