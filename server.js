@@ -26,21 +26,7 @@ app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/api/",function(req,res){
-  
-  console.log(req.body);
-    let project = new projectModel({
-        project_name: req.body.projectName
-    });
-
-    project.save(function(err, data) {
-        if (err) console.log(err);
-        else {
-            res.json({"asd":req.body.projectName, bsd: "has been created and id if this projetc is :","csd":data._id});
-        }
-    })
-
-});
+app.post("/api/",routes.)
 app.get("/api/getallproject/",routes.getAllProject);
 app.post("/api/issues/:projectName",routes.createIssue);
 

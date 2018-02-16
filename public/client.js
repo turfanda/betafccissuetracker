@@ -12,9 +12,9 @@ $(function() {
             type:"post",
             url:"api/",
             data:$('#projectCreateForm').serialize(),
-            done: function(response){
+            success: function(response){
               console.log(1);
-                console.log(response);  
+              console.log(response);  
             }
         });
 
