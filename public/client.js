@@ -28,6 +28,7 @@ $(function() {
             type:"get",
             url:"/api/getallproject/",
             success: function(response){
+              $("#resultDiv").remove();
               var ResultDiv = $("<div>");
               response.map(function(value,index){
               ResultDiv.append($("<div>").css({border:"1px solid black"}).append($("<span>").text(value.project_name)).append($("<span>").text(value._id)));
