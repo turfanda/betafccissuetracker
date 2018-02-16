@@ -24,14 +24,14 @@
   </div>
     <div class="insideDiv">
       Create issue with project Name
-            <form method="post" action="/api/issues/">
+        <form id="issueCreateForm">
             <input type="text" name="projectName" placeholder="*Project Name">
             <input type="text" name="issueName" placeholder="*Issue Name">
             <input type="text" name="issueText" placeholder="*Issue Text">
             <input type="text" name="createdBy" placeholder="*Created By">
             <input type="text" name="assignedTo" placeholder="Assigned To">
             <input type="text" name="status" placeholder="Status">
-            <button type="submit">Create Issue</button>
+            <button type="submit" id="issueSubmit">Create Issue</button>
         </form>
     
   </div>
