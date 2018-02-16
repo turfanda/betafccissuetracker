@@ -1,13 +1,15 @@
+body{
+background-color:gray;
+}
 .wrapper{
-      display: flex;
-    background-color: #5d5d5d;
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 600px;
 }
 .insideDiv {
     background-color: lightgray;
     width: 250px;
+  min-width:200px;
     height: 400px;
     margin: 10px;
 }
@@ -15,6 +17,5 @@
     background-color: lightgray;
     width: 500px;
     height: 400px;
-    margin: 10px;
-  flex-basis: fill;
+    margin: auto;
 }
