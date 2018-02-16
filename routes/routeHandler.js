@@ -9,11 +9,11 @@ exports.createProject = function(req, res) {
     project.save(function(err, data) {
         if (err) console.log(err);
         else {
-          console.log(1);
             return res.json({"asd":req.body.projectName, bsd: "has been created and id if this projetc is :","csd":data._id});
         }
     });
 }
+
 exports.getAllProject = function(req, res) {
     projectModel.find(function(err, data) {
         if (err)

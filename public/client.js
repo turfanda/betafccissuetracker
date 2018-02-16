@@ -8,9 +8,14 @@ $(function() {
     });
 
     $("#projectSubmit").on("click", function() {
-        $.post("api/", $('#projectCreateForm').serialize(), function(data) {
-          console.log(1);
-            console.log(data);
+      $.ajax({
+            type:"POST",
+            url:"api/",
+            data:$('#projectCreateForm').serialize(),//only input
+            success: function(response){
+              console.log(1);
+                console.log(response);  
+            }
         });
 
     });
