@@ -1,5 +1,6 @@
 
 var express = require('express');
+const bodyparser = require('body-parser');
 var mongoose = require("mongoose");
 var routes = require("./routes/routeHandler");
 var app = express();
@@ -12,9 +13,11 @@ mongoose.connect(process.env.MONGO_URL, function(err){
     }
 });
 
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.get("/api/issues",routes.post);
+app.post("/api/issues",routes.post);
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const project = require('../models/project');
+const projectModel = require('../models/project');
 const issue = require('../models/issue');
 
 exports.post = function(req,res){
-return res.send("Hello World");
+  let project = new projectModel({project_name:req.body.projectName});
+  project.save(function(err){if(err) console.log(err); else return res.send(req.body.projectName+"has been created")});
 }
