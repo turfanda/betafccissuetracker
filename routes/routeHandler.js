@@ -27,13 +27,12 @@ exports.getAllProject = function(req, res) {
 exports.createIssue = function(req, res) {
 
     let projectId;
-    projectModel.findOne(req.params.projectName
-    }, function(err, data) {
+    projectModel.getProjectByName(req.params.projectName, function(err, data) {
         if (data===null) {
             let project = new projectModel({
                 project_name: req.params.projectName
             });
-            project.save(function(err, data) {
+            projectModel.createProject(project,function(err, data) {
                 if (err) console.log(err);
                 else {
                     projectId = data._id;
@@ -50,7 +49,7 @@ exports.createIssue = function(req, res) {
                         _project: projectId
                     });
 
-                    issue.save(function(err, data) {
+                    issueModel.createIssue(issue,function(err, data) {
                         if (err) console.log(err);
                         else {
                             return res.json(data);
@@ -72,7 +71,7 @@ exports.createIssue = function(req, res) {
                 status: req.body.status,
                 _project: projectId
             });
-            issue.save(function(err, data) {
+            issueModel.createIssue(issue,function(err, data) {
                 if (err) console.log(err);
                 else {
                     return res.json(data);

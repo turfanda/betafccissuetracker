@@ -16,3 +16,11 @@ var issueSchema = new Schema({
 var issue = mongoose.model("issue",issueSchema)
 
 module.exports = issue;
+
+module.exports.createIssue = function(newIssue,callback){
+  newIssue.save(callback);
+}
+
+module.exports.updateIssue = function(id,callback){
+  
+}
