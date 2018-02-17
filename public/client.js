@@ -57,7 +57,6 @@ $(function() {
               $(".resultDiv").append(ResultDiv);
             },
             error:function(err){
-              console.log(response);
               $(".resultDiv").empty();
                $(".resultDiv").append(err.responseText);
             }

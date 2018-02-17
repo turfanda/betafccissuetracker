@@ -18,6 +18,7 @@ module.exports.getAllProject = function(callback){
 }
 
 module.exports.getProjectByName = function(name,callback){
+  console.log(0);console.log(name);
   let query ={project_name:name};
   project.findOne(query,callback);
 }
