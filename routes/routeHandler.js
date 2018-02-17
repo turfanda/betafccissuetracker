@@ -26,8 +26,7 @@ exports.getAllProject = function(req, res) {
 
 
 exports.getAllIssue = function(req, res) {
-  console.log(req.body)
-  projectModel.getProjectByName(req.body.projectName,function(err,data){
+  projectModel.getProjectByName(req.query.ProjectName,function(err,data){
     console.log(data);
     console.log(1);
   if(data===null){

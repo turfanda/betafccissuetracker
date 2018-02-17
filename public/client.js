@@ -46,6 +46,7 @@ $(function() {
         e.preventDefault();
             $.ajax({
             type:"get",
+            data:$('#issueGetForm').serialize(),
             url:"/api/getallissue/",
             success: function(response){
               console.log(response);
