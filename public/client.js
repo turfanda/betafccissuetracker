@@ -41,5 +41,26 @@ $(function() {
         });
 
     });
+  
+      $("#issueGetSubmit").on("click", function(e) {
+        e.preventDefault();
+            $.ajax({
+            type:"get",
+            url:"/api/getallissue/",
+            success: function(response){
+              console.log(response);
+              $(".resultDiv").empty();
+              var ResultDiv = $("<div>");
+              response.map(function(value,index){
+              ResultDiv.append($("<div>").css({border:"1px solid black"}).append($("<span>").text(value.project_name)).append($("<span>").text(value._id)));
+              })
+              $(".resultDiv").append(ResultDiv);
+            }
+        });
+
+    });
+  
+  
+  
 
 });

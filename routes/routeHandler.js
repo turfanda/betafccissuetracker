@@ -24,6 +24,17 @@ exports.getAllProject = function(req, res) {
     });
 }
 
+
+exports.getAllIssue = function(req, res) {
+    issueModel.getAllIssue(req.body.projectName,function(err, data) {
+        if (err)
+            console.log(err);
+        else {
+            return res.json(data)
+        }
+    });
+}
+
 exports.createIssue = function(req, res) {
 
     let projectId;

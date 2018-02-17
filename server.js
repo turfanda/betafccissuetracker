@@ -28,6 +28,7 @@ app.get("/", function (request, response) {
 
 app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
+app.get("/api/getallissue/",routes.getAllIssue);
 app.post("/api/issues/:projectName",routes.createIssue);
 
 var listener = app.listen(process.env.PORT, function () {
