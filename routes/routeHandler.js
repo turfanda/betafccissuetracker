@@ -26,13 +26,22 @@ exports.getAllProject = function(req, res) {
 
 
 exports.getAllIssue = function(req, res) {
-    issueModel.getAllIssue(req.body.projectName,function(err, data) {
+  projectModel.getProjectByName(req.body.projectName,function(err,data){
+  if(data==null){
+  return res.status(500).send("No such project");
+  }
+    else{
+          issueModel.getAllIssue(req.body.projectName,function(err, data) {
         if (err)
             console.log(err);
         else {
             return res.json(data)
         }
     });
+    }
+  
+  });
+
 }
 
 exports.createIssue = function(req, res) {

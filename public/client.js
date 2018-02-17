@@ -55,6 +55,11 @@ $(function() {
               ResultDiv.append($("<div>").css({border:"1px solid black"}).append($("<span>").text(value.project_name)).append($("<span>").text(value._id)));
               })
               $(".resultDiv").append(ResultDiv);
+            },
+            error:function(err){
+              console.log(response);
+              $(".resultDiv").empty();
+               $(".resultDiv").append(err.responseText);
             }
         });
 
