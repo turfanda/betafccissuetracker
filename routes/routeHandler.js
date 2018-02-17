@@ -6,7 +6,7 @@ exports.createProject = function(req, res) {
     let project = new projectModel({
         project_name: req.body.projectName
     });
-    project.save(function(err, data) {
+    projectModel.createProject(project,function(err, data) {
         if (err) console.log(err);
         else {
             return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
@@ -15,7 +15,7 @@ exports.createProject = function(req, res) {
 }
 
 exports.getAllProject = function(req, res) {
-    projectModel.find(function(err, data) {
+    projectModel.getAllProject(function(err, data) {
         if (err)
             console.log(err);
         else {
@@ -27,8 +27,7 @@ exports.getAllProject = function(req, res) {
 exports.createIssue = function(req, res) {
 
     let projectId;
-    projectModel.findOne({
-        "project_name": req.params.projectName
+    projectModel.findOne(req.params.projectName
     }, function(err, data) {
         if (data===null) {
             let project = new projectModel({
