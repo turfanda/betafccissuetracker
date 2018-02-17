@@ -5,6 +5,7 @@ $(function() {
         var url = "api/issues/" + $("#pname").val();
         $.post(url, $('#issueCreateForm').serialize(), function(data) {
             console.log(data);
+           $("input").val("");
         });
 
     });
@@ -16,7 +17,7 @@ $(function() {
             url:"api/",
             data:$('#projectCreateForm').serialize(),
             success: function(response){
-              console.log(response);  
+              $("input").val("");
             }
         });
 

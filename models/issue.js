@@ -21,6 +21,6 @@ module.exports.createIssue = function(newIssue,callback){
   newIssue.save(callback);
 }
 
-module.exports.updateIssue = function(id,callback){
-  
+module.exports.updateIssue = function(id,updates,callback){
+  issue.findByIdAndUpdate({_id:id},updates,callback)
 }

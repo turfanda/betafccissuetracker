@@ -81,3 +81,7 @@ exports.createIssue = function(req, res) {
     });
 
 }
+
+exports.updateIssue = function (req,res){
+
+}
