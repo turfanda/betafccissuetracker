@@ -8,6 +8,14 @@ $(function() {
         });
 
     });
+      $("#issueDeleteSubmit").on("click", function(e) {
+          e.preventDefault();
+        var url = "api/issues/"+$(this).siblings()[0].val();
+        console.log($(this).siblings()[0]);
+
+
+    });
+
 
     $("#projectSubmit").on("click", function(e) {
       e.preventDefault();
