@@ -30,6 +30,7 @@ app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
 app.get("/api/getallissue/",routes.getAllIssue);
 app.post("/api/issues/:projectName",routes.createIssue);
+app.delete("/api/issues/:projectName",routes.deleteIssue);
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);

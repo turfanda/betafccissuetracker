@@ -10,8 +10,18 @@ $(function() {
     });
       $("#issueDeleteSubmit").on("click", function(e) {
           e.preventDefault();
-        var url = "api/issues/"+$(this).siblings();
-        console.log($(this).siblings().prev().val());
+        var url = "api/issues/"+$(this).prevAll().eq(1).val();
+              $.ajax({
+            type:"delete",
+            url:url,
+            data:$('#issueDeleteForm').serialize(),
+            success: function(response){
+              $("input").val("");
+               $(".resultDiv").empty();
+              $(".resultDiv").append($("<span>").text(response));
+            }
+        });
+        
 
 
     });

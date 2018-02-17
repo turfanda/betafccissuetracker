@@ -104,6 +104,6 @@ exports.createIssue = function(req, res) {
 
 }
 
-exports.updateIssue = function (req,res){
-
+exports.deleteIssue = function (req,res){
+console.log(req.)
 }
