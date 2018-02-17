@@ -10,8 +10,8 @@ $(function() {
     });
       $("#issueDeleteSubmit").on("click", function(e) {
           e.preventDefault();
-        var url = "api/issues/"+$(this).siblings()[0].val();
-        console.log($(this).siblings()[0]);
+        var url = "api/issues/"+$(this).siblings();
+        console.log($(this).siblings().prev().val());
 
 
     });
