@@ -9,7 +9,7 @@ exports.createProject = function(req, res) {
     projectModel.createProject(project,function(err, data) {
         if (err) console.log(err);
         else {
-            return res.send(req.body.projectName + "has been created and id if this projetc is :" + data._id);
+            return res.send(req.body.projectName + "has been created and id of this projetc is :" + data._id);
         }
     });
 }

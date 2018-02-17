@@ -1,5 +1,4 @@
 $(function() {
-   var ResultDiv = $("<div>").attr("id","resultDiv");
     $("#issueSubmit").on("click", function(e) {
           e.preventDefault();
         var url = "api/issues/" + $("#pname").val();
@@ -18,6 +17,8 @@ $(function() {
             data:$('#projectCreateForm').serialize(),
             success: function(response){
               $("input").val("");
+               $(".resultDiv").empty();
+              $(".resultDiv").append($("<span>").text(response));
             }
         });
 
@@ -30,7 +31,7 @@ $(function() {
             url:"/api/getallproject/",
             success: function(response){
               console.log(response);
-              $("#resultDiv").remove();
+              $(".resultDiv").empty();
               var ResultDiv = $("<div>");
               response.map(function(value,index){
               ResultDiv.append($("<div>").css({border:"1px solid black"}).append($("<span>").text(value.project_name)).append($("<span>").text(value._id)));
