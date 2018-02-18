@@ -22,7 +22,7 @@ module.exports.createIssue = function(newIssue,callback){
 }
 
 module.exports.updateIssue = function(id,updates,callback){
-  issue.findByIdAndUpdate({_id:id},updates,callback)
+  issue.findByIdAndUpdate(id,updates,callback)
 }
 
 module.exports.getAllIssue = function(id,callback){
