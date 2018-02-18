@@ -117,13 +117,13 @@ else
 exports.updateIssue = function (req,res){
   console.log(req.body);
   //findByIdAndUpdate
-if(req.body.IssueId==='')
-   return res.status(400).send("No Id Send");
-else
-  issueModel.deleteIssueById(req.body.IssueId,function(err,data){
+//if(req.body.IssueId==='')
+  // return res.status(400).send("No Id Send");
+//else
+  /*issueModel.updateIssueById(req.body.IssueId,function(err,data){
   if(err)
      return res.status(400).send("No such issue");
     else
       return res.status(200).send("issue deleted from project: "+req.body.ProjectName +"with ıd of :"+ req.body.IssueId);
-  });
+  });*/
 }
