@@ -116,6 +116,7 @@ else
 }
 exports.updateIssue = function (req,res){
   console.log(req.body);
+  //findByIdAndUpdate
 if(req.body.IssueId==='')
    return res.status(400).send("No Id Send");
 else

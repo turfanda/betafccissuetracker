@@ -29,7 +29,28 @@ $(function() {
 
 
     });
+  
+        $("#issueUpdateSubmit").on("click", function(e) {
+          e.preventDefault();
+        var url = "api/issues/"+$(this).prevAll().eq(7).val();
+              $.ajax({
+            type:"put",
+            url:url,
+            data:$('#issueUpdateForm').serialize(),
+            success: function(response){
+              $("input").val("");
+               $(".resultDiv").empty();
+              $(".resultDiv").append($("<span>").text(response));
+            },
+                            error:function(err){
+              $(".resultDiv").empty();
+               $(".resultDiv").append(err.responseText);
+            }
+        });
+        
 
+
+    });
 
     $("#projectSubmit").on("click", function(e) {
       e.preventDefault();
@@ -94,8 +115,4 @@ $(function() {
         });
 
     });
-  
-  
-  
-
 });
