@@ -118,7 +118,7 @@ exports.updateIssue = function(req, res) {
     //findByIdAndUpdate
     if (req.body.issueId === '')
         return res.status(400).send("No Id Send");
-    //else
+
     /*issueModel.updateIssueById(req.body.IssueId,function(err,data){
     if(err)
        return res.status(400).send("No such issue");
