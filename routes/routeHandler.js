@@ -105,5 +105,13 @@ exports.createIssue = function(req, res) {
 }
 
 exports.deleteIssue = function (req,res){
-console.log(req.body);
+if(req.body.IssueId===null)
+   return res.status(400).send("No Id Send");
+else
+  issueModel.deleteIssueById(req.body.IssueId,function(err,data){
+  if(err)
+     return res.status(400).send("No such issue");
+    else
+      return res.status(200).send("issue deleted :" );
+  });
 }
