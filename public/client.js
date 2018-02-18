@@ -19,6 +19,10 @@ $(function() {
               $("input").val("");
                $(".resultDiv").empty();
               $(".resultDiv").append($("<span>").text(response));
+            },
+                            error:function(err){
+              $(".resultDiv").empty();
+               $(".resultDiv").append(err.responseText);
             }
         });
         
@@ -37,6 +41,10 @@ $(function() {
               $("input").val("");
                $(".resultDiv").empty();
               $(".resultDiv").append($("<span>").text(response));
+            },
+                    error:function(err){
+              $(".resultDiv").empty();
+               $(".resultDiv").append(err.responseText);
             }
         });
 
@@ -55,6 +63,10 @@ $(function() {
               ResultDiv.append($("<div>").css({border:"1px solid black"}).append($("<span>").text(value.project_name)).append($("<span>").text(value._id)));
               })
               $(".resultDiv").append(ResultDiv);
+            },
+                          error:function(err){
+              $(".resultDiv").empty();
+               $(".resultDiv").append(err.responseText);
             }
         });
 
