@@ -32,7 +32,7 @@ $(function() {
   
         $("#issueUpdateSubmit").on("click", function(e) {
           e.preventDefault();
-        var url = "api/issues/"+$(this).prevAll().eq(7).val();
+        var url = "api/issues/"+$(this).prevAll().eq(8).val();
               $.ajax({
             type:"put",
             url:url,
