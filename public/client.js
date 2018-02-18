@@ -30,7 +30,8 @@ $(function() {
 
     });
   
-        $("#issueUpdateSubmit").on("click", function(e) {
+        $("#issueUpdateForm").submit(function(e) {
+
           e.preventDefault();
         var url = "api/issues/"+$(this).prevAll().eq(8).val();
               $.ajax({
