@@ -17,7 +17,7 @@
         <div class="insideDiv">
             Create a Project
             <form id="projectCreateForm">
-                <input type="text" name="projectName" placeholder="*Project Name">
+                <input type="text" name="project_name" placeholder="*Project Name">
                 <button id="projectSubmit">Create project</button>
             </form>
             <form>
@@ -27,11 +27,11 @@
         <div class="insideDiv">
             Create issue with project Name
             <form id="issueCreateForm">
-                <input id="pname" type="text" name="projectName" placeholder="*Project Name">
-                <input type="text" name="issueName" placeholder="*Issue Name">
-                <input type="text" name="issueText" placeholder="*Issue Text">
-                <input type="text" name="createdBy" placeholder="*Created By">
-                <input type="text" name="assignedTo" placeholder="Assigned To">
+                <input id="pname" type="text" name="project_name" placeholder="*Project Name">
+                <input type="text" name="issue_title" placeholder="*Issue Name">
+                <input type="text" name="issue_text" placeholder="*Issue Text">
+                <input type="text" name="created_by" placeholder="*Created By">
+                <input type="text" name="assigned_to" placeholder="Assigned To">
                 <input type="text" name="status" placeholder="Status">
                 <button id="issueSubmit">Create Issue</button>
             </form>
@@ -45,14 +45,14 @@
         <div class="insideDiv">
             Update issue with issue Id
             <form id="issueUpdateForm">
-                <input type="text" name="ProjectName" placeholder="*Project Name" required>
-                <input id="issueId" type="text" name="issueId" placeholder="*Issue Id">
-                <input type="text" name="issueName" placeholder="*Issue Name">
-                <input type="text" name="issueText" placeholder="*Issue Text">
-                <input type="text" name="createdBy" placeholder="*Created By">
-                <input type="text" name="assignedTo" placeholder="Assigned To">
+                <input type="text" name="project_name" placeholder="*Project Name" required>
+                <input id="issueId" type="text" name="issue_Id" placeholder="*Issue Id">
+                <input type="text" name="issue_title" placeholder="*Issue Name">
+                <input type="text" name="issue_text" placeholder="*Issue Text">
+                <input type="text" name="created_by" placeholder="*Created By">
+                <input type="text" name="assigned_to" placeholder="Assigned To">
                 <input type="text" name="status" placeholder="Status"><br>
-                <label><input type="checkbox" id="opt1" name="isClosed" value="1"> Check if issue closed</label>
+                <label><input type="checkbox" id="opt1" name="open" value="1"> Check if issue closed</label>
                 <button id="issueUpdateSubmit">Update Issue</button>
             </form>
 
@@ -60,8 +60,8 @@
         <div class="insideDiv">
             Delete Issue
             <form id="issueDeleteForm">
-                <input type="text" name="ProjectName" placeholder="*Project Name">
-                <input type="text" name="IssueId" placeholder="*Issue Id">
+                <input type="text" name="project_name" placeholder="*Project Name">
+                <input type="text" name="issue_Id" placeholder="*Issue Id">
                 <button id="issueDeleteSubmit">Delete Issue</button>
             </form>
         </div>

@@ -8,7 +8,7 @@ var issueSchema = new Schema({
   assigned_to:{type: String},
 	created_on: {type: Date},
   updated_on:{type:Date},
-  isOpne:{type:Boolean},
+  open:{type:Boolean},
   status:{type:String},
     _project: { type: Schema.Types.ObjectId, ref: 'Project', required: true }
 });

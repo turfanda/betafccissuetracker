@@ -4,12 +4,12 @@ const issueModel = require('../models/issue');
 
 exports.createProject = function(req, res) {
     let project = new projectModel({
-        project_name: req.body.projectName
+        project_name: req.body.project_name
     });
     projectModel.createProject(project, function(err, data) {
         if (err) console.log(err);
         else {
-            return res.send(req.body.projectName + "has been created and id of this projetc is :" + data._id);
+            return res.send(req.body.project_name + "has been created and id of this projetc is :" + data._id);
         }
     });
 }
@@ -25,9 +25,7 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getAllIssue = function(req, res) {
-    projectModel.getProjectByName(req.query.ProjectName, function(err, data) {
-        console.log(data);
-        console.log(1);
+    projectModel.getProjectByName(req.query.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
         } else {
@@ -46,10 +44,10 @@ exports.getAllIssue = function(req, res) {
 
 exports.createIssue = function(req, res) {
     let projectId;
-    projectModel.getProjectByName(req.params.projectName, function(err, data) {
+    projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
             let project = new projectModel({
-                project_name: req.params.projectName
+                project_name: req.params.project_name
             });
             projectModel.createProject(project, function(err, data) {
                 if (err) console.log(err);
@@ -57,13 +55,13 @@ exports.createIssue = function(req, res) {
                     projectId = data._id;
                     console.log(projectId);
                     let issue = new issueModel({
-                        issue_title: req.body.issueName,
-                        issue_text: req.body.issueText,
-                        created_by: req.body.createdBy,
-                        assigned_to: req.body.assignedTo,
+                        issue_title: req.body.issue_title,
+                        issue_text: req.body.issue_text,
+                        created_by: req.body.created_by,
+                        assigned_to: req.body.assigned_to,
                         created_on: Date().now,
                         updated_on: Date().now,
-                        isOpen: true,
+                        open: true,
                         status: req.body.status,
                         _project: projectId
                     });
@@ -80,13 +78,13 @@ exports.createIssue = function(req, res) {
         } else {
             projectId = data._id;
             let issue = new issueModel({
-                issue_title: req.body.issueName,
-                issue_text: req.body.issueText,
-                created_by: req.body.createdBy,
-                assigned_to: req.body.assignedTo,
+                issue_title: req.body.issue_title,
+                issue_text: req.body.issue_text,
+                created_by: req.body.created_by,
+                assigned_to: req.body.assigned_to,
                 created_on: Date().now,
                 updated_on: Date().now,
-                isOpen: true,
+                open: true,
                 status: req.body.status,
                 _project: projectId
             });
@@ -103,23 +101,39 @@ exports.createIssue = function(req, res) {
 
 exports.deleteIssue = function(req, res) {
     console.log(req.body);
-    if (req.body.IssueId === '')
+    if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
     else
-        issueModel.deleteIssueById(req.body.IssueId, function(err, data) {
+        issueModel.deleteIssueById(req.body.issue_Id, function(err, data) {
             if (err)
                 return res.status(400).send("No such issue");
             else
-                return res.status(200).send("issue deleted from project: " + req.body.ProjectName + "with ıd of :" + req.body.IssueId);
+                return res.status(200).send("issue deleted from project: " + req.body.project_name + "with ıd of :" + req.body.issue_Id);
         });
 }
 exports.updateIssue = function(req, res) {
     console.log(req.body);
     //findByIdAndUpdate
-    if (req.body.issueId === '')
+    if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
+else{
 
-    /*issueModel.updateIssueById(req.body.IssueId,function(err,data){
+}
+/*    if()
+  let updates=	{
+  issue_title: {type: String},
+	issue_text: {type: String},
+	created_by: {type: String},
+  assigned_to:{type: String},
+	created_on: {type: Date},
+  updated_on:{type:Date},
+  isOpne:{type:Boolean},
+  status:{type:String},
+    _project: { type: Schema.Types.ObjectId, ref: 'Project', required: true }
+  }
+  }
+
+issueModel.updateIssueById(req.body.IssueId,function(err,data){
     if(err)
        return res.status(400).send("No such issue");
       else
