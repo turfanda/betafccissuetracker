@@ -93,17 +93,15 @@ $(function() {
       let object="";
       object = $('#issueUpdateForm').serialize();
       if($("#extra").is(':checked')){
-        console.log(1);
           object=object+"&open=false";
       }
-      
-      console.log(object);
         var url = "api/issues/" + $(this).children().val();;
         $.ajax({
             type: "put",
             url: url,
             data: object,
             success: function(response) {
+              $("#extra").prop("checked",false);
                 $("input").val("");
                 $(".resultDiv").empty();
                 $(".resultDiv").append($("<span>").text(response));
