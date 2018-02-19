@@ -1,5 +1,5 @@
 $(function() {
-  
+
     $("#projectCreateForm").submit(function(e) {
         e.preventDefault();
         $.ajax({
@@ -19,7 +19,7 @@ $(function() {
 
     });
 
-    $("#getAllProjectSubmit").on("click",function(e) {
+    $("#getAllProjectSubmit").on("click", function(e) {
         e.preventDefault();
         $.ajax({
             type: "get",
@@ -29,7 +29,7 @@ $(function() {
                 $(".resultDiv").empty();
                 var ResultDiv = $("<div>").addClass("infoDiv");
                 response.map(function(value, index) {
-                    ResultDiv.html("<p><em><b>Project Name :</b></em>"+value.project_name+"</p><p><em><b>Project Id :</b></em>"+value._id);
+                    ResultDiv.html("<p><em><b>Project Name :</b></em>" + value.project_name + "</p><p><em><b>Project Id :</b></em>" + value._id);
                 })
                 $(".resultDiv").append(ResultDiv);
             },
@@ -40,10 +40,10 @@ $(function() {
         });
 
     });
-  
+
     $("#issueCreateForm").submit(function(e) {
         e.preventDefault();
-       $.ajax({
+        $.ajax({
             type: "post",
             url: "api/issues/" + $("#issueCreateForm").children().eq(0).val(),
             data: $('#issueCreateForm').serialize(),
@@ -57,25 +57,25 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-      
-      
+
+
     });
-  
-      $("#issueGetForm").submit(function(e) {
+
+    $("#issueGetForm").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "get",
-            url: "/api/issues/"+$("#issueGetForm").children().eq(0).val(),
+            url: "/api/issues/" + $("#issueGetForm").children().eq(0).val(),
             success: function(response) {
                 console.log(response);
                 $(".resultDiv").empty();
                 var ResultDiv = $("<div>");
                 response.map(function(value, index) {
-                ResultDiv.append($("<div>").addClass("infoDiv").html("<p><em><b>Issue Name :</b></em>"+value.issue_title+
-                               "</p><p><em><b>Issue Id :</b></em>"+value._id+
-                               "</p><p><em><b>Issue Text :</b></em>"+value.issue_text+
-                               "</p><p><em><b>Issue Status :</b></em>"+value.status+
-                               "</p><p><em><b>Issue isOpen :</b></em>"+value.open+"</p>"));
+                    ResultDiv.append($("<div>").addClass("infoDiv").html("<p><em><b>Issue Name :</b></em>" + value.issue_title +
+                        "</p><p><em><b>Issue Id :</b></em>" + value._id +
+                        "</p><p><em><b>Issue Text :</b></em>" + value.issue_text +
+                        "</p><p><em><b>Issue Status :</b></em>" + value.status +
+                        "</p><p><em><b>Issue isOpen :</b></em>" + value.open + "</p>"));
                 })
                 $(".resultDiv").append(ResultDiv);
             },
@@ -90,18 +90,18 @@ $(function() {
 
     $("#issueUpdateForm").submit(function(e) {
         e.preventDefault();
-      let object="";
-      object = $('#issueUpdateForm').serialize();
-      if($("#extra").is(':checked')){
-          object=object+"&open=false";
-      }
+        let object = "";
+        object = $('#issueUpdateForm').serialize();
+        if ($("#extra").is(':checked')) {
+            object = object + "&open=false";
+        }
         var url = "api/issues/" + $(this).children().val();;
         $.ajax({
             type: "put",
             url: url,
             data: object,
             success: function(response) {
-              $("#extra").prop("checked",false);
+                $("#extra").prop("checked", false);
                 $("input").val("");
                 $(".resultDiv").empty();
                 $(".resultDiv").append($("<span>").text(response));
@@ -115,7 +115,7 @@ $(function() {
 
 
     });
-      $("#issueDeleteForm").submit(function(e) {
+    $("#issueDeleteForm").submit(function(e) {
         e.preventDefault();
         var url = "api/issues/" + $(this).prevAll().eq(1).val();
         $.ajax({
@@ -133,8 +133,4 @@ $(function() {
             }
         });
     });
-
-
-
-
 });

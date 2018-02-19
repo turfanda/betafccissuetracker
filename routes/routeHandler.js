@@ -3,15 +3,13 @@ const projectModel = require('../models/project');
 const issueModel = require('../models/issue');
 
 exports.createProject = function(req, res) {
-   console.log(1);
-  console.log(req.body);
     let project = new projectModel({
         project_name: req.body.project_name
     });
     projectModel.createProject(project, function(err, data) {
         if (err) return res.status(501).send("Internal Error");
         else {
-            return res.status(201).send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b>");
+            return res.status(200).send("<em><b>" + req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>" + data._id + "</em></b>");
         }
     });
 }
@@ -27,36 +25,35 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getIssue = function(req, res) {
-let get ={}
-        projectModel.getProjectByName(req.params.project_name, function(err, data) {
+    let get = {}
+    projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
         } else {
-            if(Object.keys(req.query).length === 0){
-              
-            issueModel.getIssue(get, function(err, data) {
-                if (err)
-                    res.status(501).send("Internal Error");
-                else {
-                    return res.json(data)
-                }
-            });
+            if (Object.keys(req.query).length === 0) {
+
+                issueModel.getIssue(get, function(err, data) {
+                    if (err)
+                        res.status(501).send("Internal Error");
+                    else {
+                        return res.json(data)
+                    }
+                });
+            } else {
+                get = req.query;
+                get._project = data._id
+                issueModel.getIssue(get, function(err, data) {
+                    if (err)
+                        res.status(501).send("Internal Error");
+                    else {
+                        return res.json(data)
+                    }
+                });
             }
-            else{
-              get=req.query;
-              get._project=data._id
-            issueModel.getIssue(get, function(err, data) {
-                if (err)
-                    res.status(501).send("Internal Error");
-                else {
-                    return res.json(data)
-                }
-            });
-  }
         }
 
     });
-  
+
 
 
 
@@ -70,7 +67,7 @@ exports.createIssue = function(req, res) {
                 project_name: req.body.project_name
             });
             projectModel.createProject(project, function(err, data) {
-                if (err)  res.status(501).send("Internal Error");
+                if (err) res.status(501).send("Internal Error");
                 else {
                     projectId = data._id;
                     let issue = new issueModel({
@@ -86,9 +83,9 @@ exports.createIssue = function(req, res) {
                     });
 
                     issueModel.createIssue(issue, function(err, data) {
-                        if (err)  res.status(501).send("Internal Error");
+                        if (err) res.status(501).send("Internal Error");
                         else {
-                             return res.send("<em><b>"+data.issue_title+ "</em></b> has been created and id of this issue is :" + "<em><b>"+data._id+"</em></b>");
+                            return res.send("<em><b>" + data.issue_title + "</em></b> has been created and id of this issue is :" + "<em><b>" + data._id + "</em></b>");
                         }
                     });
                 }
@@ -108,9 +105,9 @@ exports.createIssue = function(req, res) {
                 _project: projectId
             });
             issueModel.createIssue(issue, function(err, data) {
-                if (err)  res.status(501).send("Internal Error");
+                if (err) res.status(501).send("Internal Error");
                 else {
-                    return res.send("<em><b>"+data.issue_title+ "</em></b> has been created and id of this issue is :" + "<em><b>"+data._id+"</em></b>");
+                    return res.send("<em><b>" + data.issue_title + "</em></b> has been created and id of this issue is :" + "<em><b>" + data._id + "</em></b>");
                 }
             });
         }
@@ -126,11 +123,11 @@ exports.deleteIssue = function(req, res) {
             if (err)
                 return res.status(400).send("No such issue");
             else
-          return res.status(200).send("Issue deleted from project :<em><b>"+req.body.project_name + "</em></b> with ıd of : <em><b>"+req.body.issue_Id+"</em></b>");
+                return res.status(200).send("Issue deleted from project :<em><b>" + req.body.project_name + "</em></b> with ıd of : <em><b>" + req.body.issue_Id + "</em></b>");
         });
 }
 exports.updateIssue = function(req, res) {
-  console.log(req.body);
+    console.log(req.body);
     if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
     else {
