@@ -100,8 +100,7 @@ $(function() {
         e.preventDefault();
         $.ajax({
             type: "get",
-            data: $('#issueGetForm').serialize(),
-            url: "/api/getallissue/",
+            url: "/api/issues/"+$("#issueGetForm").children().eq(0).val(),
             success: function(response) {
                 console.log(response);
                 $(".resultDiv").empty();
