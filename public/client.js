@@ -53,7 +53,7 @@ $(function() {
 
     });
 
-    $("#projectSubmit").submit("click", function(e) {
+    $("#projectSubmit").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "post",
@@ -72,7 +72,7 @@ $(function() {
 
     });
 
-    $("#getAllProjectSubmit").on("click", function(e) {
+    $("#getAllProjectSubmit").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "get",
@@ -96,7 +96,7 @@ $(function() {
 
     });
 
-    $("#issueGetSubmit").on("click", function(e) {
+    $("#issueGetSubmit").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "get",
