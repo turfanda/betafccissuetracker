@@ -24,7 +24,7 @@ exports.getAllProject = function(req, res) {
     });
 }
 
-exports.getAIssue = function(req, res) {
+exports.getIssue = function(req, res) {
 let get ={}
         projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
@@ -128,6 +128,7 @@ exports.deleteIssue = function(req, res) {
         });
 }
 exports.updateIssue = function(req, res) {
+  console.log(req.body);
     if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
     else {
