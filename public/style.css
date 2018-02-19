@@ -1,6 +1,10 @@
 body{
 background-color:gray;
 }
+.mainWrapper{
+width:1000px;
+     margin: auto;
+}
 .wrapper{
   display: flex;
   align-items: center;
@@ -15,8 +19,7 @@ background-color:gray;
 }
 .resultDiv {
     background-color: lightgray;
-    width: 500px;
+  margin: 10px;
     height: 400px;
-    margin: auto;
    overflow: auto;
 }

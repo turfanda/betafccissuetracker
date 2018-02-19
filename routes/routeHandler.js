@@ -25,10 +25,7 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getAllIssue = function(req, res) {
-  console.log(1);
-  console.log(req.query.project_name);
-  console.log(req.params);
-    projectModel.getProjectByName(req.query.project_name, function(err, data) {
+    projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
         } else {
