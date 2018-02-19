@@ -11,15 +11,15 @@ width:1000px;
   justify-content: center;
 }
 .insideDiv {
+  padding:5px;
     background-color: lightgray;
     width: 250px;
-  min-width:200px;
     height: 400px;
     margin: 10px;
 }
 .resultDiv {
     background-color: lightgray;
   margin: 10px;
-    height: 400px;
+    height: 200px;
    overflow: auto;
 }
