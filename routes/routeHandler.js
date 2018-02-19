@@ -25,8 +25,8 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getAllIssue = function(req, res) {
-  if(req.query)
-    projectModel.getProjectByName(req.params.project_name, function(err, data) {
+  if(Object.keys(req.query).length === 0){
+        projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
         } else {
@@ -40,6 +40,11 @@ exports.getAllIssue = function(req, res) {
         }
 
     });
+  }
+  else{
+  return res.send("coming soon");
+  }
+
 
 }
 
