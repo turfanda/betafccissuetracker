@@ -106,8 +106,7 @@ exports.deleteIssue = function(req, res) {
             if (err)
                 return res.status(400).send("No such issue");
             else
-                return res.status(200).send("issue deleted from project: " + req.body.project_name + "with ıd of :" + req.body.issue_Id);
-          return res.send("Issue deleted from project :<em><b>"+req.body.project_name + "</em></b> with ıd of :" + "<em><b>"+data._id+"</em></b>");
+          return res.status(200).send("Issue deleted from project :<em><b>"+req.body.project_name + "</em></b> with ıd of : <em><b>"+req.body.issue_Id+"</em></b>");
         });
 }
 exports.updateIssue = function(req, res) {

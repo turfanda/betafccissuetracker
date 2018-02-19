@@ -119,7 +119,7 @@ $(function() {
             success: function(response) {
                 $("input").val("");
                 $(".resultDiv").empty();
-                $(".resultDiv").append($("<span>").text(response));
+                $(".resultDiv").html(response);
             },
             error: function(err) {
                 $(".resultDiv").empty();
