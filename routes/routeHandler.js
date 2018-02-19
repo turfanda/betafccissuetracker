@@ -24,7 +24,7 @@ exports.getAllProject = function(req, res) {
     });
 }
 
-exports.getAllIssue = function(req, res) {
+exports.getAIssue = function(req, res) {
 let get ={}
         projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {

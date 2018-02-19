@@ -28,7 +28,7 @@ app.get("/", function (request, response) {
 
 app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
-app.get("/api/issues/:project_name",routes.getAllIssue);
+app.get("/api/issues/:project_name",routes.getIssue);
 app.post("/api/issues/:project_name",routes.createIssue);
 app.put("/api/issues/:project_name",routes.updateIssue);
 app.delete("/api/issues/:project_name",routes.deleteIssue);
