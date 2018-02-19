@@ -7,9 +7,9 @@ exports.createProject = function(req, res) {
         project_name: req.body.project_name
     });
     projectModel.createProject(project, function(err, data) {
-        if (err) console.log(err);
+        if (err) return res.status(501).send("Internal Error");
         else {
-            return res.send(req.body.project_name + "has been created and id of this projetc is :" + data._id);
+            return res.send(req.body.project_name + " has been created and id of this projetc is :" + data._id);
         }
     });
 }
@@ -17,7 +17,7 @@ exports.createProject = function(req, res) {
 exports.getAllProject = function(req, res) {
     projectModel.getAllProject(function(err, data) {
         if (err)
-            console.log(err);
+            return res.status(501).send("Internal Error");
         else {
             return res.json(data)
         }
@@ -31,7 +31,7 @@ exports.getAllIssue = function(req, res) {
         } else {
             issueModel.getAllIssue(data._id, function(err, data) {
                 if (err)
-                    console.log(err);
+                    res.status(501).send("Internal Error");
                 else {
                     return res.json(data)
                 }
@@ -50,7 +50,7 @@ exports.createIssue = function(req, res) {
                 project_name: req.body.project_name
             });
             projectModel.createProject(project, function(err, data) {
-                if (err) console.log(err);
+                if (err)  res.status(501).send("Internal Error");
                 else {
                     projectId = data._id;
                     let issue = new issueModel({
@@ -66,7 +66,7 @@ exports.createIssue = function(req, res) {
                     });
 
                     issueModel.createIssue(issue, function(err, data) {
-                        if (err) console.log(err);
+                        if (err)  res.status(501).send("Internal Error");
                         else {
                             return res.json(data);
                         }
@@ -88,7 +88,7 @@ exports.createIssue = function(req, res) {
                 _project: projectId
             });
             issueModel.createIssue(issue, function(err, data) {
-                if (err) console.log(err);
+                if (err)  res.status(501).send("Internal Error");
                 else {
                     return res.json(data);
                 }

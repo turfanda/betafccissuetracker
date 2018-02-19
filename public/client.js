@@ -1,5 +1,5 @@
 $(function() {
-    $("#issueSubmit").on("click", function(e) {
+    $("#issueSubmit").submit(function(e) {
         e.preventDefault();
         var url = "api/issues/" + $("#pname").val();
         $.post(url, $('#issueCreateForm').serialize(), function(data) {
@@ -8,7 +8,7 @@ $(function() {
         });
 
     });
-    $("#issueDeleteSubmit").on("click", function(e) {
+    $("#issueDeleteSubmit").submit(function(e) {
         e.preventDefault();
         var url = "api/issues/" + $(this).prevAll().eq(1).val();
         $.ajax({
@@ -53,7 +53,7 @@ $(function() {
 
     });
 
-    $("#projectSubmit").on("click", function(e) {
+    $("#projectSubmit").submit("click", function(e) {
         e.preventDefault();
         $.ajax({
             type: "post",
