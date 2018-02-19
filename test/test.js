@@ -4,13 +4,13 @@ const assert = chai.assert;
 const mocha = require('mocha')
 const describe = mocha.describe
 const it = mocha.it
-let app = require("../server");
+let routeHandler = require("../server");
 chai.use(chaiHttp);
 
 describe("Tests",function(){
   describe("Functionla Test",function(){
     it("createProject",function(done){ 
-      chai.request(app)
+      chai.request(routeHandler.createProject)
         .put('/api')
          .send({project_name: "pr10"})
         .end(function(err, res){

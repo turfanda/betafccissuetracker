@@ -3,13 +3,15 @@ const projectModel = require('../models/project');
 const issueModel = require('../models/issue');
 
 exports.createProject = function(req, res) {
+   console.log(1);
+  console.log(req.body);
     let project = new projectModel({
         project_name: req.body.project_name
     });
     projectModel.createProject(project, function(err, data) {
         if (err) return res.status(501).send("Internal Error");
         else {
-            return res.send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b>");
+            return res.status(201).send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b>");
         }
     });
 }
