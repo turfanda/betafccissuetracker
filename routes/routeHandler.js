@@ -25,6 +25,9 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getAllIssue = function(req, res) {
+  console.log(1);
+  console.log(req.query.project_name);
+console.log(req.body);
     projectModel.getProjectByName(req.query.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
@@ -44,19 +47,15 @@ exports.getAllIssue = function(req, res) {
 
 exports.createIssue = function(req, res) {
     let projectId;
-  console.log(req.body);
-    projectModel.getProjectByName(req.params.project_name, function(err, data) {
+    projectModel.getProjectByName(req.body.project_name, function(err, data) {
         if (data === null) {
             let project = new projectModel({
-                project_name: req.params.project_name
+                project_name: req.body.project_name
             });
-          console.log(project);
             projectModel.createProject(project, function(err, data) {
                 if (err) console.log(err);
                 else {
-                  console.log(data);
                     projectId = data._id;
-                    console.log(projectId);
                     let issue = new issueModel({
                         issue_title: req.body.issue_title,
                         issue_text: req.body.issue_text,
@@ -103,7 +102,6 @@ exports.createIssue = function(req, res) {
 }
 
 exports.deleteIssue = function(req, res) {
-    console.log(req.body);
     if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
     else
@@ -115,7 +113,6 @@ exports.deleteIssue = function(req, res) {
         });
 }
 exports.updateIssue = function(req, res) {
-    console.log(req.body);
     if (req.body.issue_Id === '')
         return res.status(400).send("No Id Send");
     else {

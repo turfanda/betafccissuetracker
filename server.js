@@ -29,9 +29,9 @@ app.get("/", function (request, response) {
 app.post("/api/",routes.createProject);
 app.get("/api/getallproject/",routes.getAllProject);
 app.get("/api/getallissue/",routes.getAllIssue);
-app.post("/api/issues/:projectName",routes.createIssue);
-app.put("/api/issues/:projectName",routes.updateIssue);
-app.delete("/api/issues/:projectName",routes.deleteIssue);
+app.post("/api/issues/:project_name",routes.createIssue);
+app.put("/api/issues/:project_name",routes.updateIssue);
+app.delete("/api/issues/:project_name",routes.deleteIssue);
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
