@@ -9,7 +9,7 @@ exports.createProject = function(req, res) {
     projectModel.createProject(project, function(err, data) {
         if (err) return res.status(501).send("Internal Error");
         else {
-            return res.send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b> );
+            return res.send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b>");
         }
     });
 }
@@ -43,6 +43,7 @@ exports.getAllIssue = function(req, res) {
 }
 
 exports.createIssue = function(req, res) {
+  console.log(req.body.project_name);
     let projectId;
     projectModel.getProjectByName(req.body.project_name, function(err, data) {
         if (data === null) {
@@ -68,7 +69,7 @@ exports.createIssue = function(req, res) {
                     issueModel.createIssue(issue, function(err, data) {
                         if (err)  res.status(501).send("Internal Error");
                         else {
-                            return res.json(data);
+                             return res.send("<em><b>"+data.issue_title+ "</em></b> has been created and id of this issue is :" + "<em><b>"+data._id+"</em></b>");
                         }
                     });
                 }
@@ -90,7 +91,7 @@ exports.createIssue = function(req, res) {
             issueModel.createIssue(issue, function(err, data) {
                 if (err)  res.status(501).send("Internal Error");
                 else {
-                    return res.json(data);
+                    return res.send("<em><b>"+data.issue_title+ "</em></b> has been created and id of this issue is :" + "<em><b>"+data._id+"</em></b>");
                 }
             });
         }

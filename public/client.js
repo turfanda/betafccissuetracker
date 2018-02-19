@@ -9,7 +9,7 @@ $(function() {
             success: function(response) {
                 $("input").val("");
                 $(".resultDiv").empty();
-                $(".resultDiv").append($("<span>").text(response));
+                $(".resultDiv").html(response);
             },
             error: function(err) {
                 $(".resultDiv").empty();
@@ -43,11 +43,22 @@ $(function() {
   
     $("#issueCreateForm").submit(function(e) {
         e.preventDefault();
-        var url = "api/issues/" + $("#pname").val();
-        $.post(url, $('#issueCreateForm').serialize(), function(data) {
-            console.log(data);
-            $("input").val("");
+       $.ajax({
+            type: "post",
+            url: "api/issues/" + $("#issueCreateForm").children().eq(0).val(),
+            data: $('#issueCreateForm').serialize(),
+            success: function(response) {
+                $("input").val("");
+                $(".resultDiv").empty();
+                $(".resultDiv").html(response);
+            },
+            error: function(err) {
+                $(".resultDiv").empty();
+                $(".resultDiv").append(err.responseText);
+            }
         });
+      
+      
     });
       $("#issueGetForm").submit(function(e) {
         e.preventDefault();
