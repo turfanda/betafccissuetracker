@@ -1,6 +1,6 @@
 $(function() {
   
-      $("#projectCreateForm").submit(function(e) {
+    $("#projectCreateForm").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "post",
@@ -29,7 +29,7 @@ $(function() {
                 $(".resultDiv").empty();
                 var ResultDiv = $("<div>");
                 response.map(function(value, index) {
-                    ResultDiv.append($("<div>").addClass("infoDiv").append($("<p>").text("Project Name :"+value.project_name)).append($("<p>").text("Project Id :"+value._id)));
+                    ResultDiv.append($("<div>").addClass("infoDiv").html("<p><em><b>Project Name :</b></em>"+value.project_name+"</p><p><em><b>Project Id :</b></em>"+value._id));
                 })
                 $(".resultDiv").append(ResultDiv);
             },

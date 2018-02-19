@@ -9,7 +9,7 @@ exports.createProject = function(req, res) {
     projectModel.createProject(project, function(err, data) {
         if (err) return res.status(501).send("Internal Error");
         else {
-            return res.send(req.body.project_name + " has been created and id of this projetc is :" + data._id);
+            return res.send("<em><b>"+req.body.project_name + "</em></b> has been created and id of this projetc is :" + "<em><b>"+data._id+"</em></b> );
         }
     });
 }
