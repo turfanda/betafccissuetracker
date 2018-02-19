@@ -25,8 +25,7 @@ module.exports.updateIssueById = function(id,updates,callback){
   issue.findByIdAndUpdate(id,updates,callback)
 }
 
-module.exports.getAllIssue = function(id,callback){
-  let query ={_project:id};
+module.exports.getIssue = function(query,callback){
   issue.find(query,callback);
 }
 module.exports.deleteIssueById = function(id,callback){

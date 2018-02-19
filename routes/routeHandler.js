@@ -25,13 +25,14 @@ exports.getAllProject = function(req, res) {
 }
 
 exports.getAllIssue = function(req, res) {
-
+let get ={}
         projectModel.getProjectByName(req.params.project_name, function(err, data) {
         if (data === null) {
             return res.status(500).send("No such project");
         } else {
             if(Object.keys(req.query).length === 0){
-            issueModel.getAllIssue(data._id, function(err, data) {
+              
+            issueModel.getIssue(get, function(err, data) {
                 if (err)
                     res.status(501).send("Internal Error");
                 else {
@@ -40,7 +41,15 @@ exports.getAllIssue = function(req, res) {
             });
             }
             else{
-  return res.send("coming soon");
+              get=req.query;
+              get._project=data._id
+            issueModel.getIssue(get, function(err, data) {
+                if (err)
+                    res.status(501).send("Internal Error");
+                else {
+                    return res.json(data)
+                }
+            });
   }
         }
 
