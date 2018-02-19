@@ -19,9 +19,6 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-
-
-
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });

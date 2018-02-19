@@ -16,9 +16,7 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-
     });
-
     $("#getAllProjectSubmit").on("click", function(e) {
         e.preventDefault();
         $.ajax({
@@ -38,7 +36,6 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-
     });
 
     $("#issueCreateForm").submit(function(e) {
@@ -57,8 +54,6 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-
-
     });
 
     $("#issueGetForm").submit(function(e) {
@@ -84,9 +79,7 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-
     });
-
 
     $("#issueUpdateForm").submit(function(e) {
         e.preventDefault();
@@ -111,9 +104,6 @@ $(function() {
                 $(".resultDiv").append(err.responseText);
             }
         });
-
-
-
     });
     $("#issueDeleteForm").submit(function(e) {
         e.preventDefault();

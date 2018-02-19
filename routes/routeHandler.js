@@ -13,7 +13,6 @@ exports.createProject = function(req, res) {
         }
     });
 }
-
 exports.getAllProject = function(req, res) {
     projectModel.getAllProject(function(err, data) {
         if (err)
@@ -23,7 +22,6 @@ exports.getAllProject = function(req, res) {
         }
     });
 }
-
 exports.getIssue = function(req, res) {
     let get = {}
     projectModel.getProjectByName(req.params.project_name, function(err, data) {
@@ -53,10 +51,6 @@ exports.getIssue = function(req, res) {
         }
 
     });
-
-
-
-
 }
 
 exports.createIssue = function(req, res) {
@@ -112,7 +106,6 @@ exports.createIssue = function(req, res) {
             });
         }
     });
-
 }
 
 exports.deleteIssue = function(req, res) {
