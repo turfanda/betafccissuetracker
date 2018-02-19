@@ -45,8 +45,8 @@
 
         </div>
         <div class="insideDiv">
-            Update issue with issue Id
-          <label><input type="checkbox" name="open" value="false"/>Check if issue closed</label>
+            Update issue with issue Id<br>
+          <label><input id="extra" type="checkbox" name="open"/>Check if issue closed</label>
             <form id="issueUpdateForm">
                 <input type="text" name="project_name" placeholder="*Project Name" required>
                 <input id="issueId" type="text" name="issue_Id" placeholder="*Issue Id" required>
@@ -54,8 +54,7 @@
                 <input type="text" name="issue_text" placeholder="Issue Text">
                 <input type="text" name="created_by" placeholder="Created By">
                 <input type="text" name="assigned_to" placeholder="Assigned To">
-                <input type="text" name="status" placeholder="Status"><br>
-                 
+                <input type="text" name="status" placeholder="Status">
                 <button id="issueUpdateSubmit">Update Issue</button>
             </form>
 
