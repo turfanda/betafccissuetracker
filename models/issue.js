@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var issueSchema = new Schema({
-	issue_title: {type: String},
-	issue_text: {type: String},
+	title: {type: String},
+	comment: {type: String},
 	created_by: {type: String},
   assigned_to:{type: String},
 	created_on: {type: Date},
