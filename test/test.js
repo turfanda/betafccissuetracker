@@ -23,20 +23,5 @@ describe("Tests", function() {
                     done();
                 });
         });
-        it("createProject", function(done) {
-            done();
-        });
-        it("createProject", function(done) {
-            done();
-        });
-        it("createProject", function(done) {
-            done();
-        });
-        it("createProject", function(done) {
-            done();
-        });
-        it("createProject", function(done) {
-            done();
-        });
     });
 });
